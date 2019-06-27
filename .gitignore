@@ -76,5 +76,7 @@ typings/
 .fusebox/
 
 .vs
-bin
-obj
+vs/
+.vs/
+bin/
+obj/
