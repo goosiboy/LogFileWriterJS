@@ -1,0 +1,3 @@
+C:\Users\JonyPerus\Documents\GitHub\logfileWriterJS\obj\Debug\logfileWriterJS.njsproj.CoreCompileInputs.cache
+C:\Users\JonyPerus\Documents\GitHub\logfileWriterJS\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\JonyPerus\Documents\GitHub\logfileWriterJS\obj\Debug\logfileWriterJS.njsprojAssemblyReference.cache

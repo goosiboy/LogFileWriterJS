@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "logfileWriterJS", "logfileWriterJS.njsproj", "{50E697DA-39A3-4773-8CD7-6C847B5ED16F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{50E697DA-39A3-4773-8CD7-6C847B5ED16F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50E697DA-39A3-4773-8CD7-6C847B5ED16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50E697DA-39A3-4773-8CD7-6C847B5ED16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50E697DA-39A3-4773-8CD7-6C847B5ED16F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54131DBE-1647-46B5-B4E3-0C069F89AD3E}
+	EndGlobalSection
+EndGlobal

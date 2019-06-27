@@ -1,0 +1,12 @@
+{
+  "name": "logfile-writer-js",
+  "version": "0.0.1",
+  "description": "logfileWriterJS",
+  "main": "logfileWriter.js",
+  "author": {
+    "name": "oinasjo"
+  },
+  "scripts": {
+    "start": "node Testi.js"
+  }
+}
