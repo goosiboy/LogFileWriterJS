@@ -23,7 +23,7 @@ let Logger = {
     defaultURL: "./logs/logFileWriter.log",
 
     /**
-     * Initializes the logger.
+     * Initializes the logger. If init is not called, the Logger uses ./logs/
      * { String } logFileLocation, { String } logFileName
      */
     init: function (logFileLocation, logFileName) {
@@ -35,18 +35,23 @@ let Logger = {
         this.logFileLocation = logFileLocation;
         this.logFileName = logFileName;
     },
-    debug: function (debugString) {
-        const fs = require('fs');
-        let stream = fs.createWriteStream(defaultURL, { flags: 'a' });
-
-        let config = {
-            logLevel: LogLevel.DEBUG
-        };
-
+    debugLog: function (str) {
+        let config = { logLevel: LogLevel.DEBUG };
+        this.writeLog(str, config);
+    },
+    infoLog: function (str) {
+        let config = { logLevel: LogLevel.INFO };
+        this.writeLog(str, config);
+    },
+    errorLog: function (str) {
+        let config = { logLevel: LogLevel.ERROR };
+        this.writeLog(str, config);
+    },
+    writeLog: function (debugString, config) {
+        let stream = fs.createWriteStream(this.defaultURL, { flags: 'a' });
         stream.on('finish', function () {
             console.log("Log file has been updated");
         });
-
         stream.write(this.buildString(debugString, config));
         stream.end();
     },
