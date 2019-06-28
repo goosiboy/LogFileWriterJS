@@ -18,44 +18,44 @@ const LogLevel = {
  */
 let Logger = {
 
-    logFileLocation: "",
-    logFileName: "",
-    defaultURL: "./logs/logFileWriter.log",
+    _logFileLocation: "",
+    _logFileName: "",
+    _defaultURL: "./logs/logFileWriter.log",
 
     /**
      * Initializes the logger. If init is not called, the Logger uses ./logs/
-     * { String } logFileLocation, { String } logFileName
+     * { String } _logFileLocation, { String } _logFileName
      */
-    init: function (logFileLocation, logFileName) {
+    INIT: function (_logFileLocation, _logFileName) {
         try {
-            Utils.validateString(logFileLocation, logFileName);
+            Utils.validateString(_logFileLocation, _logFileName);
         } catch (err) {
             throw err;
         }
-        this.logFileLocation = logFileLocation;
-        this.logFileName = logFileName;
+        this._logFileLocation = _logFileLocation;
+        this._logFileName = _logFileName;
     },
-    debugLog: function (str) {
+    DEBUGLOG: function (str) {
         let config = { logLevel: LogLevel.DEBUG };
-        this.writeLog(str, config);
+        this._writeLog(str, config);
     },
-    infoLog: function (str) {
+    INFOLOG: function (str) {
         let config = { logLevel: LogLevel.INFO };
-        this.writeLog(str, config);
+        this._writeLog(str, config);
     },
-    errorLog: function (str) {
+    ERRORLOG: function (str) {
         let config = { logLevel: LogLevel.ERROR };
-        this.writeLog(str, config);
+        this._writeLog(str, config);
     },
-    writeLog: function (debugString, config) {
-        let stream = fs.createWriteStream(this.defaultURL, { flags: 'a' });
+    _writeLog: function (debugString, config) {
+        let stream = fs.createWriteStream(this._defaultURL, { flags: 'a' });
         stream.on('finish', function () {
             console.log("Log file has been updated");
         });
-        stream.write(this.buildString(debugString, config));
+        stream.write(this._buildString(debugString, config));
         stream.end();
     },
-    buildString: function (str, config) {
+    _buildString: function (str, config) {
         let timeStamp = new Date().toISOString();
         let logLevel = config.logLevel;
         let msg = "";
