@@ -21,6 +21,7 @@ let Logger = {
     _logFileLocation: "",
     _logFileName: "",
     _defaultURL: "./logs/logFileWriter.log",
+    _debugMode: false,
 
     /**
      * Initializes the logger. If init is not called, the Logger uses ./logs/
@@ -36,28 +37,41 @@ let Logger = {
         this._logFileName = _logFileName;
     },
     DEBUGLOG: function (str) {
-        let config = { logLevel: LogLevel.DEBUG };
-        this._writeLog(str, config);
+        this._writeLog(
+            str,
+            { logLevel: LogLevel.DEBUG }
+        );
     },
     INFOLOG: function (str) {
-        let config = { logLevel: LogLevel.INFO };
-        this._writeLog(str, config);
+        this._writeLog(
+            str,
+            { logLevel: LogLevel.INFO }
+        );
     },
     ERRORLOG: function (str) {
-        let config = { logLevel: LogLevel.ERROR };
-        this._writeLog(str, config);
+        this._writeLog(
+            str,
+            { logLevel: LogLevel.ERROR }
+        );
+    },
+    _runInDebugMode: function (flag) {
+        this._debugMode = flag;
     },
     _writeLog: function (debugString, config) {
         let stream = fs.createWriteStream(this._defaultURL, { flags: 'a' });
-        stream.on('finish', function () {
-            console.log("Log file has been updated");
-        });
-        stream.write(this._buildString(debugString, config));
+        let logLevel = config.logLevel;
+
+        if (this._debugMode) {
+            stream.on('finish', function () {
+                console.log("Log file has been updated");
+            });
+        }
+
+        stream.write(this._buildString(debugString, logLevel));
         stream.end();
     },
-    _buildString: function (str, config) {
+    _buildString: function (str, logLevel) {
         let timeStamp = new Date().toISOString();
-        let logLevel = config.logLevel;
         let msg = "";
         switch (logLevel) {
             case LogLevel.DEBUG:
