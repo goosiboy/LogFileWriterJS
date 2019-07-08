@@ -1,12 +1,19 @@
 {
-  "name": "logfile-writer-js",
-  "version": "0.0.1",
+  "name": "logfile-writer",
+  "version": "0.0.2",
   "description": "logfileWriterJS",
   "main": "logfileWriter.js",
-  "author": {
-    "name": "oinasjo"
-  },
+  "author": "oinasjo",
   "scripts": {
     "start": "node index.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oinasjo/LogFileWriterJS.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oinasjo/LogFileWriterJS/issues"
+  },
+  "homepage": "https://github.com/oinasjo/LogFileWriterJS#readme"
 }
