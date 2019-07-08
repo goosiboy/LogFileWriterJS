@@ -8,6 +8,7 @@ Three log levels:
 - ERROR
 
 Example:
+
 const Logger = require('./logfileWriter.js');
 
 Logger.INIT("./logs", "example");
